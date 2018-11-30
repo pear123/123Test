@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.AgreementMapper">
+    <insert id="addAgreement" parameterType="agreement">
+        insert into agreement(content,name)values (#{content},#{name})
+    </insert>
+    <update id="updateAgreement" parameterType="agreement">
+         update agreement set content=#{content} where a_id=#{a_id}
+    </update>
+    <select id="querryAgreementById" parameterType="Integer" resultType="agreement">
+        select agreement.* from agreement where a_id=#{a_id}
+    </select>
+    <select id="querryAgreementByName" parameterType="String" resultType="agreement">
+        select agreement.* from agreement where name=#{name}
+    </select>
+    <delete id="deleteAgreement" parameterType="Integer">
+        delete from agreement where a_id=#{a_id}
+    </delete>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.InformationMapper">
+    <select id="querryInforList"  resultType="information">
+        select * from information
+    </select>
+    <insert id="addInformation" parameterType="information">
+        insert into information(createtime,title,content,u_id)values (#{createtime},#{title},#{content},#{u_id})
+    </insert>
+    <delete id="deleteInformation" parameterType="Integer">
+        delete from information where infor_id=#{infor_id}
+    </delete>
+    <update id="updateInformation" parameterType="information">
+         update information set content=#{content},title=#{title} where infor_id=#{infor_id}
+    </update>
+    <select id="querryInformationByU_id" parameterType="Integer" resultType="information">
+        select information.* from information where u_id=#{u_id}
+    </select>
+    <select id="querryInformationById" parameterType="Integer" resultType="information">
+        select information.* from information where infor_id=#{infor_id}
+    </select>
+</mapper>

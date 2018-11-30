@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+    <!-- service -->
+    <bean id="userService" class="service.UserService">
+        <property name="userMapper" ref="userMapper"></property>
+        <property name="login_recordMapper" ref="login_recordMapper"></property>
+    </bean>
+    <bean id="Login_recordService" class="service.Login_recordService">
+        <property name="login_recordMapper" ref="login_recordMapper"></property>
+    </bean>
+    <bean id="informationService" class="service.InformationService">
+        <property name="informationMapper" ref="informationMapper"></property>
+        <property name="userMapper" ref="userMapper"></property>
+    </bean>
+    <bean id="agreementService" class="service.AgreementService">
+        <property name="agreementMapper" ref="agreementMapper"></property>
+    </bean>
+    <bean id="scoreService" class="service.ScoreService">
+        <property name="scoreMapper" ref="scoreMapper"></property>
+        <property name="userMapper" ref="userMapper"></property>
+    </bean>
+    <bean id="password_recordService" class="service.Password_recordService">
+        <property name="password_recordMapper" ref="password_recordMapper"></property>
+        <property name="userMapper" ref="userMapper"></property>
+    </bean>
+
+</beans>

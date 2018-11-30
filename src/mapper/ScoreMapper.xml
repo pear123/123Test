@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ScoreMapper">
+    <insert id="addScore" parameterType="score">
+        insert into score(sc,u_id)values (#{sc},#{u_id})
+    </insert>
+    <update id="updateScore" parameterType="score">
+         update score set sc=#{sc} where s_id=#{s_id}
+    </update>
+    <select id="querryScoreById" parameterType="Integer" resultType="score">
+        select score.* from score where s_id=#{s_id}
+    </select>
+    <select id="querryScoreByUid" parameterType="Integer" resultType="score">
+        select score.* from score where u_id=#{u_id}
+    </select>
+</mapper>
